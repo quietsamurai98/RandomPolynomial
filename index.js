@@ -56,11 +56,11 @@ var generate_polynomial = function(){
 	var row = table.insertRow(-1);
 	var cell = row.insertCell(0);
 	cell.innerText = gen_poly(
-		document.getElementById("min_deg").value,
-		document.getElementById("max_deg").value,
-		document.getElementById("min_coeff").value,
-		document.getElementById("max_coeff").value,
-		document.getElementById("add_space").value / 100.0,
+		parseInt(document.getElementById("min_deg").value),
+		parseInt(document.getElementById("max_deg").value),
+		parseInt(document.getElementById("min_coeff").value),
+		parseInt(document.getElementById("max_coeff").value),
+		parseInt(document.getElementById("add_space").value) / 100.0,
 		document.getElementById("is_definite").checked
 	)
 }
