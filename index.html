@@ -5,14 +5,17 @@
     <title>RandomPolynomial</title>
   </head>
   <body>
-    <form>
+    <form onsubmit="generate_polynomial()">
         Minimum coefficient:<input type="number" name="min_coeff" value="-10" id="min_coeff" step="1"><br>
         Maximum coefficient:<input type="number" name="max_coeff" value="10"  id="max_coeff" step="1"><br>
         Minimum degree:<input type="number" name="min_deg" value="-10" id="min_deg" step="1"><br>
         Maximum degree:<input type="number" name="max_deg" value="10"  id="max_deg" step="1"><br>
+        Added space percentage:<input type="number" name="add_space" value="10" min="0" max="100" id="add_space" step="1"><br>
         <input type="checkbox" name="is_definite" id="is_definite" value="false"> Should the integral be definite?<br>
-        <input type="submit" value="Generate!">
+        <input type="submit" value="Generate!"><br>
     </form>
+    <table id="results_table">
+    </table>
   </body>
   <script src="index.js"></script>
 </html>
