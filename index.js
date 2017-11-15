@@ -30,10 +30,10 @@ var gen_poly = function(min_degree, max_degree, min_coeff, max_coeff, space_dens
 	out = sprinkle_spaces(out, space_density);
 	
 	if(is_definite){
-		let start = ((Math.random() * (max_coeff-1-min_coeff))+min_coeff) | 0;
-		let end   = ((Math.random() * (max_coeff-start))+start) | 0;
+		let start = ((Math.random() * (max_coeff-min_coeff))+min_coeff) | 0;
+		let end   = ((Math.random() * (max_coeff+1-start))+start) | 0;
 		while(start === end){
-			end   = ((Math.random() * (max_coeff-start))+start) | 0;
+			end   = ((Math.random() * (max_coeff+1-start))+start) | 0;
 		}
 		out=start+"|"+end+" "+out+" dx";
 	} else {
