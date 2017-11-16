@@ -8,7 +8,7 @@ var gen_term = function(degree, min_coeff, max_coeff){
 		out+="+";
 	}
 	out+=coeff;
-	if(degree){
+	if(degree!=0){
 		out+="x";
 		if(degree!=1){
 			out+="^"+degree;
@@ -16,13 +16,23 @@ var gen_term = function(degree, min_coeff, max_coeff){
 	}
 	return coeff?out:""; // VxVn[0*x^n == 0], so replace any term with a coefficient of 0 with nothing
 }
-
+var shuffle = function(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+}
 var gen_poly = function(min_degree, max_degree, min_coeff, max_coeff, space_density, is_definite){
-	let out = "";
+	let arr = [];
 	for(var i = max_degree; i >= min_degree; i--){
 		if(i!==-1){
-			out+=gen_term(i, min_coeff, max_coeff);
+			arr.push(i);
 		}
+	}
+	shuffle(i);
+	let out = "";
+	for(i in arr){
+		out+=gen_term(i, min_coeff, max_coeff);
 	}
 	if(out.charAt(0) == '+'){
 		out=out.substr(1);
